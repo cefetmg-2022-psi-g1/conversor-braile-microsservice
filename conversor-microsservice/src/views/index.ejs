@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="images/favicon.png" type="image/x-icon" />
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/translate.css">
+		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/menu.css">
+		<link rel="stylesheet" href="css/header.css">
+		<link rel="stylesheet" href="css/keyboard.css">
+		<title>2Braile</title>
+	</head>
+	<body>
+
+		<main class="translate" id="main-content">
+			<form action="/" method="post">
+				<div id="in">
+					<div id="area-in" class="use-keyboard-input" contentEditable="true">Digite o texto a ser traduzido...</div>
+				</div>
+				<input type="text" name="entradaTraducao" id="inputHidden">
+				<div id="arrow-button">
+					<button><abbr title="Traduzir"><img id="arrow" src="images/arrow-long-right.svg" alt=""></abbr></button>
+				</div>
+				<div id="out">
+					<textarea disabled name="" id="area-out" cols="50" rows="30" placeholder="Sua tradução aparecerá aqui...">
+						<% if(textoTraduzido.length > 0) for(var i = 0; i < textoTraduzido.length; i++) { %>
+							<%=textoTraduzido[i]%>
+						<% } %></textarea>
+				</div>
+				<div id="copy">
+					<abbr title="Copiar para área de transferência"><a><img src="images/clipboard.svg" alt=""></a></abbr>
+				</div>
+			</form>
+		</main>
+
+		<script src="js/copyClipboard.js"></script>
+		<script src="js/showFormatted.js"></script>
+		<script src="js/keyboard.js"></script>
+		<script src="js/disableKeyboardToSmartphones.js"></script>
+		<script src="js/postInputToDiv.js"></script>
+	</body>
+</html>

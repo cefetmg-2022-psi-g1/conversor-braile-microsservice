@@ -1,0 +1,87 @@
+.translate {
+    margin-bottom: 10vh;
+}
+
+@media only screen and (min-width : 500px) {
+    .translate form {
+        margin-left: calc(50vw - 36.5vw);
+        display: grid;
+        padding-top: 3vh;
+        grid-template-columns: 34vw 7vw 33vw 5vw;
+    }
+
+    textarea, #area-in {
+        width: 30vw;
+        height: 70vh;
+        font-size: 4vh;
+    }
+
+    #arrow {
+        width: 4vw;
+    }
+
+    #copy {
+        width: 24px;
+    }
+
+    #arrow-button button{
+        margin-top: 34vh;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .translate form {
+        display: grid;
+        margin-left: 17vw;
+        padding-top: 2vh;
+        grid-template-rows: 32vh 6vh 31vh 3vh;
+        width: 66vw;    
+    }
+
+    textarea, #area-in {
+        width: 66vw;
+        height: 30vh;
+        font-size: 2.2vh;
+    }
+
+    #arrow {
+        transform: rotate(90deg);
+    }
+
+    #copy {
+        width: 26px;
+        margin-left: 55vw;
+    }
+
+    #arrow-button button{
+        margin-left: 28vw;
+    }
+}
+
+textarea, #area-in {
+    border-radius: 2px;
+    resize: none;
+    box-shadow: 5px 2.5px 5px rgba(0, 0, 0, 0.040);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#area-in {
+    border: 1px solid rgba(128, 128, 128, 0.719);
+}
+
+#copy {
+    border: solid 1px;
+    height: 26px;
+    border-radius: 4px;
+    margin-top: 0.5vw;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.10), -5px -5px 10px rgba(0, 0, 0, 0.10);
+}
+
+#arrow-button button{
+    background-color: #445863; 
+    border: 0; 
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05), -5px -5px 20px rgba(0, 0, 0, 0.05); 
+    border-radius: 3px; 
+}

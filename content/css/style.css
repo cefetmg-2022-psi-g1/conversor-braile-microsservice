@@ -1,0 +1,9 @@
+body {
+    background-color: #F8FFFD;
+    width: auto;
+    height: auto;
+    margin: 0px;
+	padding: 0px;
+    font-family: 'Noto Sans', sans-serif;
+    overflow-x: hidden;
+}
