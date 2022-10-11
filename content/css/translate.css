@@ -1,3 +1,7 @@
+body {
+    overflow-y: hidden;
+}
+
 .translate {
     margin-bottom: 10vh;
 }
