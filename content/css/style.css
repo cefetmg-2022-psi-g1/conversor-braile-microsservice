@@ -1,6 +1,6 @@
 iframe, body {
     width: 100vw;
-    height: 89vh;
+    height: calc(100vh - 70px);
     overflow-x: hidden;
     margin: 0;
     padding: 0;
