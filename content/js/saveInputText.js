@@ -1,11 +1,10 @@
 
-if(window.localStorage.getItem('traducao') === '') window.localStorage.setItem('traducao', 'Digite o texto a ser traduzido...');
+let buttonTranslate = document.querySelector('#arrow-button button')
 
-btnTranslate.addEventListener('click', function() {
-    window.localStorage.setItem('traducao', textIn.innerHTML);
+if(window.localStorage.getItem('traducao') === '') window.localStorage.setItem('traducao', '');
+
+buttonTranslate.addEventListener('click', function() {
+    window.localStorage.setItem('traducao', textIn.value);
 });
 
-textIn.innerHTML = window.localStorage.getItem('traducao');
-
-if(textIn.innerHTML !== "Digite o texto a ser traduzido...") textIn.style.color = "black"
-
+textIn.value = window.localStorage.getItem('traducao');
