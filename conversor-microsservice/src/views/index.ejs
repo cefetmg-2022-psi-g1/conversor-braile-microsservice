@@ -22,8 +22,13 @@
 					<div id="area-in" class="use-keyboard-input" contentEditable="true">Digite o texto a ser traduzido...</div>
 				</div>
 				<input type="text" name="entradaTraducao" id="inputHidden">
-				<div id="arrow-button">
-					<button><abbr title="Traduzir"><img id="arrow" src="images/arrow-long-right.svg" alt=""></abbr></button>
+				<div>
+					<div id="clear">
+						<abbr title="Apagar texto do input"><a><img src="images/eraser.png" alt=""></a></abbr>
+					</div>
+					<div id="arrow-button">
+						<button><abbr title="Traduzir"><img id="arrow" src="images/arrow-long-right.svg" alt=""></abbr></button>
+					</div>
 				</div>
 				<div id="out">
 					<textarea disabled name="" id="area-out" cols="50" rows="30" placeholder="Sua tradução aparecerá aqui...">
@@ -46,5 +51,8 @@
 		<script src="js/keyboard.js"></script>
 		<script src="js/disableKeyboardToSmartphones.js"></script>
 		<script src="js/postInputToDiv.js"></script>
+		<script src="js/cleanInput.js"></script>
+		<script src="js/saveInputText.js"></script>
+		<script src="js/disableTranslateIfTextNull.js"></script>
 	</body>
 </html>

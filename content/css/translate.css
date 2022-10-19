@@ -11,7 +11,7 @@ body {
         margin-left: calc(50vw - 36.5vw);
         display: grid;
         padding-top: 3vh;
-        grid-template-columns: 34vw 7vw 33vw 5vw;
+        grid-template-columns: 33vw 8vw 33vw 5vw;
     }
 
     textarea, #area-in {
@@ -24,12 +24,13 @@ body {
         width: 4vw;
     }
 
-    #copy {
+    #copy, #clear {
         width: 24px;
     }
 
     #arrow-button button{
-        margin-top: 34vh;
+        margin-top: 28vh;
+        margin-left: 1vw;
     }
 }
 
@@ -38,7 +39,7 @@ body {
         display: grid;
         margin-left: 17vw;
         padding-top: 2vh;
-        grid-template-rows: 32vh 6vh 31vh 3vh;
+        grid-template-rows: 32vh 9vh 31vh 3vh;
         width: 66vw;    
     }
 
@@ -52,7 +53,7 @@ body {
         transform: rotate(90deg);
     }
 
-    #copy {
+    #copy, #clear {
         width: 26px;
         margin-left: 55vw;
     }
@@ -75,12 +76,12 @@ textarea, #area-in {
     border: 1px solid rgba(128, 128, 128, 0.719);
 }
 
-#copy {
+#copy, #clear {
     border: solid 1px;
     height: 26px;
     border-radius: 4px;
     margin-top: 0.5vw;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.10), -5px -5px 10px rgba(0, 0, 0, 0.10);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.07), -5px -5px 10px rgba(0, 0, 0, 0.07);
 }
 
 #arrow-button button{
