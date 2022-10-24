@@ -19,9 +19,8 @@
 		<main class="translate" id="main-content">
 			<form action="/" method="post">
 				<div id="in">
-					<div id="area-in" class="use-keyboard-input" contentEditable="true">Digite o texto a ser traduzido...</div>
+					<textarea name="entradaTraducao" id="area-in" cols="50" rows="30" class="use-keyboard-input" placeholder="Digite o texto a ser traduzido..."></textarea> 
 				</div>
-				<input type="text" name="entradaTraducao" id="inputHidden">
 				<div>
 					<div id="clear">
 						<abbr title="Apagar texto do input"><a><img src="images/eraser.png" alt=""></a></abbr>
@@ -50,7 +49,6 @@
 		<script src="js/showFormatted.js"></script>
 		<script src="js/keyboard.js"></script>
 		<script src="js/disableKeyboardToSmartphones.js"></script>
-		<script src="js/postInputToDiv.js"></script>
 		<script src="js/cleanInput.js"></script>
 		<script src="js/saveInputText.js"></script>
 		<script src="js/disableTranslateIfTextNull.js"></script>
