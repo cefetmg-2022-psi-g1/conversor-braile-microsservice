@@ -1,0 +1,48 @@
+body {
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: #F8FFFD;
+    font-family: 'Noto Sans', sans-serif;
+    width: auto;
+    height: auto;
+    margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+    margin-left: 12vw;
+    color: #4f6470;
+}
+
+.texto {
+  margin-left: 12vw;
+  margin-right: 30vw;
+  text-align: justify;
+}
+
+.form {
+    position: absolute;
+    margin-left: 12vw;
+    margin-right: 12vw;
+  }
+  .form input {
+    font-family: "Roboto", sans-serif;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#form-1 {
+    padding: 12px;
+    width: 120%;
+}
+
+#form-2 {
+    padding: 100px;
+    width: 120%;
+}
+
+input[type=submit] {
+    padding: 12px;
+    width: 20%;
+}
