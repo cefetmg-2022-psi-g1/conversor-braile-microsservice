@@ -1,14 +1,9 @@
 module.exports.index = function(application, req, res) {
-    //checar token para ver se o usuário está logado
-    //caso não esteja, exibe página de login
-    res.render('login')
-
-    //caso esteja, exibe página de usuário
+    console.log('chegou aqui')
+    res.render('teste')
+    console.log('passou daqui')
 }
 
-module.exports.paginaUsuario = function(application, req, res) {
-    //checar token para ver se o usuário está logado
-    //caso não esteja, exibe página de login
-    //caso esteja, exibe página de usuário
-    res.render('pgUsuario')
+module.exports.registrar = function(nome, senha, email, application, req, res) {
+
 }

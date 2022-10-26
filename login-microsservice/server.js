@@ -1,17 +1,24 @@
-require('dotenv').config()
 const bodyParser = require('body-parser')
-const express = require('express')
-const helmet = require('helmet')
+const express = require("express")
+const morgan = require("morgan")
+const helmet = require("helmet")
+const path = require('path')
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
 const app = express();
-const morgan = require('mongoose-morgan');
 var consign = require('consign')
 var server = null
+const senhabd = process.env.MONGODBSENHA
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://2braile:" + senhabd + "@2braile.v8tfqlo.mongodb.net/?retryWrites=true&w=majority"
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
 
 consign()
     .include('src/controllers')
@@ -24,17 +31,13 @@ app.set('view engine', 'ejs')
 app.use(express.static('../content'));
 app.use(bodyParser.json());
 
-//creendeciais
-const dbUser = process.env.DB_USER
-const dbPassword = process.env.DB_PASS
-
 function start(api, callback) {
   app.use(morgan("dev")); 
   app.use(helmet());
   app.use(function (req, res, next) {
     res.setHeader(
       'Content-Security-Policy',
-      "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'; frame-ancestors *"
+      "default-src *; font-src *; img-src *; script-src *; style-src *; frame-src *; frame-ancestors *"
     );
     next();
   });
@@ -44,7 +47,7 @@ function start(api, callback) {
   });
 
   api(app);
-  
+
   server = app.listen(3001, () => {
     const host = server.address().address;
     const port = server.address().port;
@@ -57,5 +60,3 @@ function stop() {
 }
 
 module.exports = { start, stop };
-
-
