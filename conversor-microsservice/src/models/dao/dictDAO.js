@@ -127,5 +127,34 @@ var translate = {
         '8': '⠓',
         '9': '⠊',
         'CAP': '⠠',
-        'NUM': '⠼'
+        'NUM': '⠼',
+        '♂': '⠰',
+        '♀': '⠔',
+        '→': '⠒⠗',
+        '←': '⠺⠒',
+        '⇋': '⠲⠒⠚', //TRÊS CARACTERES MESMO?
+        '⌬': '⠪⠕',
+        'α': '⠈⠁',
+        'β': '⠈⠃',
+        'γ': '⠈⠛',
+        'π': '⠈⠏',
+        'ρ': '⠈⠗',
+        'Δ': '⠘⠙',
+        " ": '⠀',
+        "/n": "/n"
 };
+
+module.exports.gerarTraducao = function(textoTraducao, callback) {
+        var textoTraduzido = []
+    
+        for(let i = 0; i < textoTraducao.length; i++) {
+                let query = textoTraducao[i]
+                var charTraduzido
+                if(query in translate) charTraduzido = translate[query]
+                else charTraduzido = "□"
+                textoTraduzido.push(charTraduzido)
+                if(i == textoTraducao.length - 1) {
+                        callback(null, textoTraduzido)
+                }
+        }
+}
