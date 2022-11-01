@@ -97,10 +97,10 @@ const Keyboard = {
                 case "sobre":
                     keyElement.classList.add("keyboard__key--activatable");
                     keyElement.innerHTML = "x²";
+                    keyElement.id = "sobre";
 
                     keyElement.addEventListener("click", () => {
                         this._toggleSuperscript();
-                        keyElement.classList.toggle("keyboard__key--active");
                     });
 
                     break;
@@ -108,10 +108,10 @@ const Keyboard = {
                 case "sub":
                     keyElement.classList.add("keyboard__key--activatable");
                     keyElement.innerHTML = "x₂";
+                    keyElement.id = "sub";
 
                     keyElement.addEventListener("click", () => {
                         this._toggleSubscript();
-                        keyElement.classList.toggle("keyboard__key--active");
                     });
 
                     break;    
@@ -189,7 +189,7 @@ const Keyboard = {
         if(this.properties.sub === true) {
             this._toggleSubscript()
         }
-
+        document.getElementById("sobre").classList.toggle("keyboard__key--active");
         this.properties.sup = !this.properties.sup
     },
 
@@ -197,7 +197,7 @@ const Keyboard = {
         if(this.properties.sup === true) {
             this._toggleSuperscript()
         }
-
+        document.getElementById("sub").classList.toggle("keyboard__key--active");
         this.properties.sub = !this.properties.sub
     },
 
