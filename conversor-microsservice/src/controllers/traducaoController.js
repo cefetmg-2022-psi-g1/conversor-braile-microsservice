@@ -14,7 +14,7 @@ module.exports.traducao = function(application, entradaTraducao, req, res) {
         //console.log(textoTraducao)
     })
 
-    application.src.models.dao.dictDAO.gerarTraducao(textoTraducao, function(err, result) { //MUDAR NOME
+    application.src.models.dao.dataBaseDAO.gerarTraducao(textoTraducao, function(err, result) {
         console.log(result)
         //if(err)
            //console.log(err)

@@ -5,8 +5,6 @@ const helmet = require("helmet")
 const app = express();
 var consign = require('consign')
 var server = null
-require('dotenv').config()
-const nodeMailer = require('nodemailer')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 

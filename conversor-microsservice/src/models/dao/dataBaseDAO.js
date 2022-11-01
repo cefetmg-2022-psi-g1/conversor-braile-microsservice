@@ -1,4 +1,4 @@
-/*
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
 const senhabd = process.env.MONGODBSENHA
@@ -45,4 +45,6 @@ module.exports.gerarTraducao = async function(textoTraducao, callback) {
     }
 
 }
-*/
+
+
+
