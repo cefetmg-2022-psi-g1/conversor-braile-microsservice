@@ -4,6 +4,7 @@ module.exports = (app) => {
         var nome = req.body.nomeCadastro
         var senha = req.body.senhaCadastro
 
+        console.log('chegou aqui')
         app.src.controllers.loginController.registrar(nome, senha, email, app, req, res)
     })
 }

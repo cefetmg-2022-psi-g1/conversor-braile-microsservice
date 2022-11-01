@@ -1,9 +1,11 @@
 module.exports.index = function(application, req, res) {
-    console.log('chegou aqui')
-    res.render('teste')
-    console.log('passou daqui')
+    res.render('login')
 }
 
-module.exports.registrar = function(nome, senha, email, application, req, res) {
-
+module.exports.registrar = function(nome, senha, email, app, req, res) {
+    console.log('chegou aqui')
+    app.src.models.dao.cadastroDAO.registrar(nome, senha, email, req, res, (err, result) => {
+        console.log('chegou aqui')
+        console.log(result)
+    })
 }

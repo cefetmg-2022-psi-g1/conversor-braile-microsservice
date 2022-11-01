@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
-const User = require('../dto/user.js')
+const User = require('../dto/user')
 
-module.exports.registrar = async function(nome, senha, email, callback) {
+module.exports.registrar = async function(nome, senha, email, req, res, callback) {
     bcrypt.hash(senha, 10)
 
     try {
@@ -11,8 +11,10 @@ module.exports.registrar = async function(nome, senha, email, callback) {
             email
         })
         console.log('Usuário criado com sucesso: ', response)
+        callback(null, response)
     } catch(error) {
-        console.log(error.message)
+        console.log(error)
+        callback(error)
         return res.json({ status: 'error' })
     }
 }
