@@ -1,0 +1,49 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\PICHAU\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add jsonwebtoken
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-17\bin;C:\Program Files\nodejs\;C:\Users\PICHAU\AppData\Local\Microsoft\WindowsApps;C:\Users\PICHAU\AppData\Local\atom\bin;C:\MinGW\bin;C:\Users\PICHAU\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\PICHAU\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jdk-17;C:\Program Files\Java\jdk1.8.0_111\bin;C:\Users\PICHAU\AppData\Local\gitkraken\bin;C:\Users\PICHAU\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\PICHAU\Documents\2Braile\conversor-braile-microsservice\package.json: Unexpected token < in JSON at position 22
+      at JSON.parse (<anonymous>)
+      at C:\Users\PICHAU\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\PICHAU\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\PICHAU\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "bcryptjs": "^2.4.3",
+      "consign": "^0.1.6",
+      "dotenv": "^16.0.2",
+      "ejs": "^3.1.8",
+      "express": "^4.18.2",
+      "helmet": "^6.0.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongodb": "^4.10.0",
+      "mongoose": "^6.7.0",
+      "morgan": "^1.10.0",
+      "node": "^19.0.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.20"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

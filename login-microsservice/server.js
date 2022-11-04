@@ -8,21 +8,15 @@ const app = express();
 var consign = require('consign')
 var server = null
 const senhabd = process.env.MONGODBSENHA
+const uri = "mongodb+srv://2braile:"+ senhabd +"@2braile.v8tfqlo.mongodb.net/?retryWrites=true&w=majority"
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://2braile:" + senhabd + "@2braile.v8tfqlo.mongodb.net/?retryWrites=true&w=majority"
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+mongoose.connect(uri)
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 consign()
     .include('src/controllers')
-    .then('src/models')
+    .then('src/models/dao')
     .then('src/routes')
     .into(app)
 
