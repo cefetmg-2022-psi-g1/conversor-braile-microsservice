@@ -8,8 +8,9 @@ button.addEventListener('click', function() {
     button.style.transition = "all .1s linear";
     button.style.opacity = "0.5";
 });
-
+/*
 textIn.addEventListener('keydown', function(){
     button.style.opacity = "1";
 
-});
+}); 
+*/ //PARA QUE SERVE?

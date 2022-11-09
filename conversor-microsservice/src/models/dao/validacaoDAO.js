@@ -12,10 +12,11 @@
 }*/
 
 module.exports.validarEntrada = function(entradaTraducao, callback) {
-    var textoTraducao = entradaTraducao.replace("</sub>", "")
+    var textoTraducao = entradaTraducao
     textoTraducao = textoTraducao.replaceAll("<sub>", "♂")
     textoTraducao = textoTraducao.replaceAll("</sub>", "")
     textoTraducao = textoTraducao.replaceAll("</sup>", "")
     textoTraducao = textoTraducao.replaceAll("<sup>", "♀")
+    //textoTraducao = textoTraducao.replaceAll("\r\n", "ω")
     callback(null, textoTraducao)
 }
