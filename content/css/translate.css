@@ -86,3 +86,8 @@ textarea {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05), -5px -5px 20px rgba(0, 0, 0, 0.05); 
     border-radius: 3px; 
 }
+
+#img-copy {
+    width: 22px;
+    padding: 2px;
+}
