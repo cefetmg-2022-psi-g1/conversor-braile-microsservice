@@ -132,16 +132,20 @@ var translate = {
         '♀': '⠔',
         '→': '⠒⠗',
         '←': '⠺⠒',
-        '⇋': '⠲⠒⠚', //TRÊS CARACTERES MESMO?
+        //'⇋': '⠲⠒⠚', //⇌???
+        "⇌":  '⠲⠒⠚',
         '⌬': '⠪⠕',
         'α': '⠈⠁',
         'β': '⠈⠃',
-        'γ': '⠈⠛',
+        'γ': '⠈⠛',//NAO USADO
+        'δ': '⠈⠙',
         'π': '⠈⠏',
-        'ρ': '⠈⠗',
+        'ρ': '⠈⠗',//NAO USADO
+        'μ': '⠈⠍',
+        'σ': '⠈⠎',
         'Δ': '⠘⠙',
-        " ": '⠀',
-        "/n": "/n"
+        '\n': '\n'
+        //'ω': '</br>'
 };
 
 module.exports.gerarTraducao = function(textoTraducao, callback) {
@@ -151,7 +155,7 @@ module.exports.gerarTraducao = function(textoTraducao, callback) {
                 let query = textoTraducao[i]
                 var charTraduzido
                 if(query in translate) charTraduzido = translate[query]
-                else charTraduzido = "□"
+                else charTraduzido = "□ " + query + " □"
                 textoTraduzido.push(charTraduzido)
                 if(i == textoTraducao.length - 1) {
                         callback(null, textoTraduzido)

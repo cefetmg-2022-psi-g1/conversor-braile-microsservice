@@ -1,4 +1,4 @@
-require("dotenv").config();
+/*require("dotenv").config();
 const nodeMail = require("nodemailer");
 const path = require("path");
 
@@ -28,3 +28,4 @@ async function mainMail(name, email, subject, message) {
 }
 
 module.exports = mainMail;
+*/

@@ -7,6 +7,7 @@ body {
     height: auto;
     margin: 0px;
 	padding: 0px;
+    margin-bottom: 10vh;
 }
 
 h1 {
@@ -16,33 +17,57 @@ h1 {
 
 .texto {
   margin-left: 12vw;
-  margin-right: 30vw;
+  margin-right: 20vw;
   text-align: justify;
 }
 
 .form {
-    position: absolute;
+    background: #FFFFFF;
+    width: 60vw;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin-left: 12vw;
-    margin-right: 12vw;
-  }
-  .form input {
+}
+.form input, textarea {
     font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
     margin: 0 0 15px;
+    padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+  }
+.form input[type=submit] {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #445863;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+.form input[type=submit]:hover,.form input[type=submit]:active,.form input[type=submit]:focus {
+    background: #5B7482;
+} 
+
+textarea {
+    height: 20vh;
 }
 
-#form-1 {
-    padding: 12px;
-    width: 120%;
-}
-
-#form-2 {
-    padding: 100px;
-    width: 120%;
-}
-
-input[type=submit] {
-    padding: 12px;
-    width: 20%;
+@media only screen and (max-width : 500px) {
+    .texto {
+        margin-right: 12vw;
+    }
+    .form {
+        width: 76vw;
+        padding: 15px;
+    }
 }

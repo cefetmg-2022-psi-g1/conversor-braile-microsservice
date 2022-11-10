@@ -10,7 +10,11 @@ var server = null
 const senhabd = process.env.MONGODBSENHA
 const uri = "mongodb+srv://2braile:"+ senhabd +"@2braile.v8tfqlo.mongodb.net/?retryWrites=true&w=majority"
 
-mongoose.connect(uri)
+ mongoose.connect( uri, {
+  "auth": { "authSource": "admin" },
+    "user": "2braile",
+    "pass": "senhaManeiraDoBancoCavalo"
+ });
 
 app.use(bodyParser.urlencoded({ extended: true }))
 

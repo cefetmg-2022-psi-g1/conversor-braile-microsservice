@@ -23,7 +23,7 @@ module.exports.validarEntrada = function(nomeRegistro, senhaRegistro, emailRegis
 
 module.exports.registrar = async function(nomeRegistro, senhaRegistro, emailRegistro, req, res, callback) {
     try {
-        const reponse = await User.create({
+        const response = await User.create({
             nome: nomeRegistro,
             password: senhaRegistro,
             email: emailRegistro
