@@ -3,7 +3,7 @@ module.exports = (app) => {
         res.render('sobre-nos');
     });
     
-    app.post("/contact", async (req, res, next) => {
+    app.post("/contact", async (req, res) => {
         const yourname = req.body.yourname;
         const youremail = req.body.youremail;
         const yoursubject = req.body.yoursubject;
@@ -13,9 +13,9 @@ module.exports = (app) => {
         console.log(yoursubject);
         console.log(yourmessage);
         try {
-            await app.src.controllers.twoBraileController.enviarEmail(yourname, youremail, yoursubject, yourmessage);
-            res.render('sobre-nos');
+            await app.src.controllers.twoBraileController.enviarEmail(yourname, youremail, yoursubject, yourmessage, app, req, res);
         } catch (error) {
+            console.log(error)
             res.send("Message Could not be Sent");
         }
     });

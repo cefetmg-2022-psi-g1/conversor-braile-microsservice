@@ -3,6 +3,6 @@ module.exports.index = function(application, req, res) {
 }
 
 module.exports.enviarEmail = function (yourname, youremail, yoursubject, yourmessage, application, req, res) {
-    application.src.models.enviarEmail(yourname, youremail, yoursubject, yourmessage);
+    application.src.models.enviarEmail.mainMail(yourname, youremail, yoursubject, yourmessage);
     res.render('sobre-nos')
 }
