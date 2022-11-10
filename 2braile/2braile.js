@@ -1,14 +1,20 @@
 module.exports = (app) => {
     app.get("/contact", (req, res) => {
-        res.render(contact.html);
+        res.render('sobre-nos');
     });
     
     app.post("/contact", async (req, res, next) => {
-        const { yourname, youremail, yoursubject, yourmessage } = req.body;
+        const yourname = req.body.yourname;
+        const youremail = req.body.youremail;
+        const yoursubject = req.body.yoursubject;
+        const yourmessage = req.body.yourmessage;
+        console.log(yourname);
+        console.log(youremail);
+        console.log(yoursubject);
+        console.log(yourmessage);
         try {
             await app.src.controllers.twoBraileController.enviarEmail(yourname, youremail, yoursubject, yourmessage);
-        
-            res.send("Message Successfully Sent!");
+            res.render('sobre-nos');
         } catch (error) {
             res.send("Message Could not be Sent");
         }
