@@ -1,9 +1,8 @@
-/*
 module.exports.index = function(application, req, res) {
     let resultado = []
     res.render('index', {textoTraduzido: resultado})
 }
-*/
+
 module.exports.traducao = function(application, entradaTraducao, req, res) {
     let textoTraducao = ''
 
