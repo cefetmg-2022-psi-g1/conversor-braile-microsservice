@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-console.log("CHEGOU AQUI USER.JS")
-
 const UserSchema = new mongoose.Schema(
     {
         nome: { type: String, required: true },

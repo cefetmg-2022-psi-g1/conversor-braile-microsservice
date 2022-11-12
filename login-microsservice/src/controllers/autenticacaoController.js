@@ -2,27 +2,42 @@ module.exports.index = function(application, req, res) {
     res.render('autenticacao')
 }
 
-module.exports.registrar = function(nome, senha, email, app, req, res) {
-    console.log('registro')
-    
-    app.src.models.dao.autenticacaoDAO.registrar(nome, senha, email, req, res, (err, result) => {
-        if(!err)
+module.exports.registrar = async function(nome, senha, email, app, req, res) {
+    var resposta
+
+    await app.src.models.dao.autenticacaoDAO.validarEntrada(nome, senha, email, req, res, (err, nomeValido, senhaValida, emailValido) => {
+        if(!err) {
             console.log(err)
+            resposta = err
+        }
 
-        nome = result.nomeValido
-        senha = result.senhaValida
-        email = result.emailValido
+        nome = nomeValido
+        senha = senhaValida
+        email = emailValido
     })
 
-    app.src.models.dao.autenticacaoDAO.registrar(nome, senha, email, req, res, (err, result) => {
-        console.log(result)
+    await app.src.models.dao.autenticacaoDAO.registrar(nome, senha, email, req, res, (err, result) => {
+        if(!err) {
+            console.log(err)
+            resposta = err
+        } else {
+            console.log(result)
+            resposta = result
+        }
     })
+
+    res.render('autenticacao', resposta)
 }
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
-    console.log('login')
-
     app.src.models.dao.autenticacaoDAO.logar(senhaLogin, emailLogin, req, res, (err, result) => {
-        console.log(result)
+        if(!err) {
+            console.log(err)
+            res.render('autenticacao', err)
+        } else {
+            console.log(err)
+            console.log(result)
+            res.render('pgUsuario', result)
+        }
     })
 }

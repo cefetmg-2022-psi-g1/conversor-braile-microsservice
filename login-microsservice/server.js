@@ -35,7 +35,7 @@ function start(api, callback) {
   app.use(function (req, res, next) {
     res.setHeader(
       'Content-Security-Policy',
-      "default-src *; font-src *; img-src *; script-src *; style-src *; frame-src *; frame-ancestors *"
+      "default-src *; font-src *; img-src *; script-src *; style-src * 'unsafe-inline'; frame-src *; frame-ancestors *"
     );
     next();
   });
