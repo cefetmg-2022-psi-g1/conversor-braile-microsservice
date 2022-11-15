@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="css/menu.css">
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/keyboard.css">
+		<link rel="stylesheet" href="css/tutorial.css">
+
 		<title>2Braile</title>
 	</head>
 	<body>
@@ -40,11 +42,28 @@
 							<%=textoTraduzido[i]%>
 						<% } %></textarea>
 				</div>
-				<div id="copy">
-					<abbr title="Copiar para área de transferência"><a><img src="images/copy.png" alt="" id="img-copy"></a></abbr>
+				<div id="containerBotoes">
+					<div id="copy">
+						<abbr title="Copiar para área de transferência"><a><img src="images/copy.png" alt="" id="img-copy"></a></abbr>
+					</div>
+					<div id="file">
+						<abbr title="Apagar texto do input"><a id="open-save"><img id="save-btn" src="images/diskette.png" alt=""></a></abbr>
+					</div>
 				</div>
 			</form>
 		</main>
+
+		<div id="save">
+			<form action="/salvar" method="post">
+				<div id="tutorial">
+					<div id="slides">
+						<img src="images/close.svg" alt="" id="close-tutorial">
+						<input type="text" name="nomeTraducao" placeholder="Nome da sua tradução"/>
+						<button>Salvar</button>
+					</div>
+				</div>
+			</form>
+		</div>
 
 		<footer>
 			<p>2Braile - Conversor didático para Braile - 2022</p>
@@ -58,5 +77,6 @@
 		<script src="js/cleanInput.js"></script>
 		<script src="js/saveInputText.js"></script>
 		<script src="js/disableTranslateIfTextNull.js"></script>
+		<script src="js/save.js"></script>
 	</body>
 </html>
