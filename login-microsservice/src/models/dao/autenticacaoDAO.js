@@ -7,11 +7,11 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 module.exports.validarEntrada = async function(nomeRegistro, senhaRegistro, emailRegistro, req, res, callback) {
     if(!emailRegistro || typeof emailRegistro !== 'string' /*|| regex para validação de email*/) {
-        callback({ status: 'error', mensagem: 'Email inválido'})
+        callback({ status: 'error', mensagem: 'Erro ao cadastrar: email inválido' })
     }
 
     if(!senhaRegistro /*|| condições para senha válida*/) {
-        callback({ status: 'error', mensagem: 'Senha inválida'})
+        callback({ status: 'error', mensagem: 'Erro ao cadastrar: senha inválida'})
     } else {
         //criptografa a senha
         senhaRegistro = await bcrypt.hash(senhaRegistro, 10)
@@ -34,10 +34,10 @@ module.exports.registrar = async function(nomeRegistro, senhaRegistro, emailRegi
     } catch(error) {
         if(error.code === 11000) {
             console.log("Esse email já está em uso. " + error)
-            callback({ status: 'error', mensagem: 'Esse email já está em uso.'})
+            callback({ status: 'error', mensagem: 'Erro ao cadastro: esse email já está em uso.'})
         }
         else {
-            callback({ status: 'error', mensagem: 'Erro inesperado!' })
+            callback({ status: 'error', mensagem: 'Erro ao cadastrar: erro inesperado!' })
         }
     }
 }
