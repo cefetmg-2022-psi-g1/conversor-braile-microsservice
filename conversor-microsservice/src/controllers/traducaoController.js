@@ -7,17 +7,16 @@ module.exports.traducao = function(application, entradaTraducao, req, res) {
     let textoTraducao = ''
 
     application.src.models.dao.validacaoDAO.validarEntrada(entradaTraducao, function(err, result) {
-        //if(err)
-            //tratar erro
+        if(err)
+            console.log(err)
 
         textoTraducao = result
-        //console.log(textoTraducao)
     })
 
     application.src.models.dao.dictDAO.gerarTraducao(textoTraducao, function(err, result) {
         console.log(result)
-        //if(err)
-           //console.log(err)
+        if(err)
+           console.log(err)
         
         res.render('index', {textoTraduzido: result})
     })
