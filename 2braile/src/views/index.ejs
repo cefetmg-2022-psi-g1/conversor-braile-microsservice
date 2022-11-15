@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/menu.css">
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/keyboard.css">
+		<link rel="stylesheet" href="css/tutorial.css">
 		<title>2Braile</title>
 	</head>
 	<body>
@@ -37,6 +38,10 @@
 			<div class="nav-header">
 				<a href=""><img src="images/Braille.svg" class="nav-title"></a>
 			</div>
+
+			<div id="conteiner-btn-tutorial">
+				<button id="tutorial-btn"><img src="images/sinal-de-interrogacao.png" alt=""></button>
+			</div>
 			
 			<div class="nav-btn">
 				<label for="nav-check">
@@ -60,14 +65,47 @@
 
 		<header>
 			<a href="."><img id="logo" src="images/Braille.svg" alt=""></a>
+			<div id="conteiner-btn-tutorial">
+				<button id="tutorial-btn"><img src="images/sinal-de-interrogacao.png" alt=""></button>
+			</div>
 		</header>
 
 		<iframe src="http://localhost:3000/" frameborder="0" allow="clipboard-write"></iframe>
 
+		<div id="tutorial">
+			<div id="slides">
+				<img src="images/close.svg" alt="" id="close-tutorial">
+				<input type="radio" class="slide-controller" name="slide" checked />
+				<input type="radio" class="slide-controller" name="slide" />
+				<input type="radio" class="slide-controller" name="slide" />
+				<input type="radio" class="slide-controller" name="slide" />
+				<div class="slide-show" >
+					<ul class="slides-list" >
+					  <li class="slide" >
+						<img src="https://picsum.photos/300/300?image=8" />
+						<p>1</p>
+					  </li>
+					  <li class="slide" >
+						<img src="https://picsum.photos/300/300?image=0" />
+						<p>2</p>
+					  </li>
+					  <li class="slide" >
+						<img src="https://picsum.photos/300/300?image=6" />
+						<p>3</p>
+					  </li>
+					  <li class="slide" >
+						<img src="https://picsum.photos/300/300?image=1" />
+						<p>4</p>
+					  </li>
+					</ul>
+				  </div>
+			</div>
+		</div>
 
 		<script src="js/copyClipboard.js"></script>
 		<script src="js/showFormatted.js"></script>
 		<script src="js/keyboard.js"></script>
 		<script src="js/disableKeyboardToSmartphones.js"></script>
+		<script src="js/tutorial.js"></script>
 	</body>
 </html>
