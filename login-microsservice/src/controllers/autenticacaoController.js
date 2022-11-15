@@ -21,12 +21,12 @@ module.exports.index = function(app, req, res) {
 }
 
 module.exports.registrar = async function(nome, senha, email, app, req, res) {
-    var resposta
+    var mensagem
 
     await app.src.models.dao.autenticacaoDAO.validarEntrada(nome, senha, email, req, res, (err, nomeValido, senhaValida, emailValido) => {
         if(!err) {
             console.log(err)
-            resposta = err
+            mensagem = err
         }
 
         nome = nomeValido
@@ -37,14 +37,14 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
     await app.src.models.dao.autenticacaoDAO.registrar(nome, senha, email, req, res, (err, result) => {
         if(err) {
             console.log("erro: " + err)
-            resposta = err
+            mensagem = err
         } else {
             console.log("resultado :" + result)
-            resposta = result
+            mensagem = result
         }
     })
 
-    res.render('autenticacao', resposta)
+    res.render('autenticacao', mensagem)
 }
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
