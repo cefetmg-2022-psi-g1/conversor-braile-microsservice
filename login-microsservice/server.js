@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const express = require("express")
 const morgan = require("morgan")
 const helmet = require("helmet")
@@ -17,6 +18,7 @@ const uri = "mongodb+srv://2braile:"+ senhabd +"@2braile.v8tfqlo.mongodb.net/?re
  });
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 consign()
     .include('src/controllers')

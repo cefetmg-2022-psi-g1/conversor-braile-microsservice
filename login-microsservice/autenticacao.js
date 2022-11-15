@@ -13,4 +13,8 @@ module.exports = (app) => {
 
         app.src.controllers.autenticacaoController.logar(senhaLogin, emailLogin, app, req, res)
     })
+
+    app.post('/logout', (req, res) => {
+        app.src.controllers.autenticacaoController.logout(app, req, res)
+    })
 }
