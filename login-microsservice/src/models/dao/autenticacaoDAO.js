@@ -80,7 +80,7 @@ module.exports.autorizar = function(token, req, res, callback) {
         const user = jwt.verify(token, JWT_SECRET)
         const _id = user.id
         const userNome = user.nome
-        const userEmail = user.nome
+        const userEmail = user.email
 
         callback(null, { status: 'ok', id: _id, nome: userNome, email: userEmail })
     }
