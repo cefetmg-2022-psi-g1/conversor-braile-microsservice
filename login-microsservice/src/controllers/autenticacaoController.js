@@ -17,11 +17,11 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
     })
 
     await app.src.models.dao.autenticacaoDAO.registrar(nome, senha, email, req, res, (err, result) => {
-        if(!err) {
-            console.log(err)
+        if(err) {
+            console.log("erro: " + err)
             resposta = err
         } else {
-            console.log(result)
+            console.log("resultado :" + result)
             resposta = result
         }
     })
@@ -31,11 +31,10 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
     app.src.models.dao.autenticacaoDAO.logar(senhaLogin, emailLogin, req, res, (err, result) => {
-        if(!err) {
+        if(err) {
             console.log(err)
             res.render('autenticacao', err)
         } else {
-            console.log(err)
             console.log(result)
             res.render('pgUsuario', result)
         }

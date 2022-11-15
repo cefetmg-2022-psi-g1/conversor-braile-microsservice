@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs')
 const { model } = require('mongoose')
 const User = require('../dto/user')
@@ -35,26 +36,29 @@ module.exports.registrar = async function(nomeRegistro, senhaRegistro, emailRegi
             console.log("Esse email já está em uso. " + error)
             callback({ status: 'error', mensagem: 'Esse email já está em uso.'})
         }
+        else {
+            callback({ status: 'error', mensagem: 'Erro inesperado!' })
+        }
     }
 }
 
 module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback) {
     try {
-        const user = User.findOne({ email: emailLogin }).lean()
+        const user = await User.findOne({ email: emailLogin }).lean()
         if(!user) {
             callback({ status: 'error', error: 'Usuário ou senha inválidos' })
             return
         }
 
-        console.log("SENHA DO USER: " + user.password + user.nome + user.email)
-
         if(await bcrypt.compare(senhaLogin, user.password)) {
             const token = jwt.sign({ 
                 id: user._id, 
-                email: user.email 
+                email: user.email,
+                nome: user.nome 
             }, JWT_SECRET)
 
             callback(null, { status: 'ok', data: token })
+            return
         }
 
         callback({ status: 'error', error: 'Usuário ou senha inválidos' })
