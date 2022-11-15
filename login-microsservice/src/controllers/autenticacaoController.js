@@ -6,11 +6,15 @@ module.exports.index = function(app, req, res) {
         res.render('autenticacao')
     else {
         app.src.models.dao.autenticacaoDAO.autorizar(token, req, res, (err, result) => {
-            if(err)
-                res.render('autenticacao', err)
+            var mensagem
+            if(err) {
+                mensagem = err
+                res.render('autenticacao', mensagem)
+            }
             else {
+                mensagem = result
                 console.log(JSON.stringify(result))
-                res.render('pgUsuario', result)
+                res.render('pgUsuario', mensagem)
             }
         })
     }
@@ -44,14 +48,21 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
 }
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
-    var mensagem
     app.src.models.dao.autenticacaoDAO.logar(senhaLogin, emailLogin, req, res, (err, result) => {
+        var mensagem
         if(err) {
             console.log(err)
-            res.render('autenticacao', err)
+            mensagem = err
+            res.render('autenticacao', mensagem)
         } else {
             console.log(JSON.stringify(result))
-            res.render('pgUsuario', result)
+            mensagem = result
+            res.render('pgUsuario', mensagem)
         }
     })
+}
+
+module.exports.logout = function(app, req, res) {
+    app.src.models.dao.autenticacaoDAO.logout(res)
+    res.render('autenticacao')
 }

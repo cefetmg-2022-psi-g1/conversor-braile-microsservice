@@ -88,5 +88,8 @@ module.exports.autorizar = function(token, req, res, callback) {
         console.log(error)
         callback({ status: 'error', error: 'Erro de autenticação' })
     }
-    
+}
+
+module.exports.logout = function(res) {
+    res.clearCookie('access_token')
 }
