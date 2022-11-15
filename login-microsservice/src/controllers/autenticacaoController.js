@@ -1,5 +1,19 @@
-module.exports.index = function(application, req, res) {
-    res.render('autenticacao')
+const { Console } = require("console")
+
+module.exports.index = function(app, req, res) {
+    const token = req.cookies.access_token
+    if(!token)
+        res.render('autenticacao')
+    else {
+        app.src.models.dao.autenticacaoDAO.autorizar(token, req, res, (err, result) => {
+            if(err)
+                res.render('autenticacao', err)
+            else {
+                console.log(JSON.stringify(result))
+                res.render('pgUsuario', result)
+            }
+        })
+    }
 }
 
 module.exports.registrar = async function(nome, senha, email, app, req, res) {
@@ -30,12 +44,13 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
 }
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
+    var mensagem
     app.src.models.dao.autenticacaoDAO.logar(senhaLogin, emailLogin, req, res, (err, result) => {
         if(err) {
             console.log(err)
             res.render('autenticacao', err)
         } else {
-            console.log(result)
+            console.log(JSON.stringify(result))
             res.render('pgUsuario', result)
         }
     })

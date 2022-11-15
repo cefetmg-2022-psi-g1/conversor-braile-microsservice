@@ -57,7 +57,15 @@ module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback
                 nome: user.nome 
             }, JWT_SECRET)
 
-            callback(null, { status: 'ok', data: token })
+            res.cookie('access_token', token, {
+               httpOnly: true,
+            })
+            
+            const _id = user._id
+            const userNome = user.nome
+            const userEmail = user.email
+            callback(null, { status: 'ok', id: _id, nome: userNome, email: userEmail })
+
             return
         }
 
@@ -65,4 +73,20 @@ module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback
     } catch(error) {
         callback({ status: 'error', error: error })
     }
+}
+
+module.exports.autorizar = function(token, req, res, callback) {
+    try {
+        const user = jwt.verify(token, JWT_SECRET)
+        const _id = user.id
+        const userNome = user.nome
+        const userEmail = user.nome
+
+        callback(null, { status: 'ok', id: _id, nome: userNome, email: userEmail })
+    }
+    catch(error) {
+        console.log(error)
+        callback({ status: 'error', error: 'Erro de autenticação' })
+    }
+    
 }
