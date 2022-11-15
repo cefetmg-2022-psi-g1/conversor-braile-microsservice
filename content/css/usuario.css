@@ -46,3 +46,9 @@ h1 {
     margin-left: 52vw;
     color: #4f6470;
 }
+
+#logout-button {
+    background-color: #4f6470;
+    border-radius: 5px;
+    border-width: 0.5px;
+}

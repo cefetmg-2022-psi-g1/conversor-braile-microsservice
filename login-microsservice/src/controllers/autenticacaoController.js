@@ -44,7 +44,7 @@ module.exports.registrar = async function(nome, senha, email, app, req, res) {
         }
     })
 
-    res.render('autenticacao', mensagem)
+    res.render('autenticacaoRetorno', mensagem)
 }
 
 module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
@@ -53,7 +53,7 @@ module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
         if(err) {
             console.log(err)
             mensagem = err
-            res.render('autenticacao', mensagem)
+            res.render('autenticacaoRetorno', mensagem)
         } else {
             console.log(JSON.stringify(result))
             mensagem = result

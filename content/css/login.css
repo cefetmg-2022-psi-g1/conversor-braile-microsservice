@@ -97,3 +97,9 @@ textarea{
 .container .info span .fa {
   color: #EF3B3A;
 }
+
+#mensagem-texto {
+  padding: 5px;
+  color: white;
+  border-radius: 3px;
+}

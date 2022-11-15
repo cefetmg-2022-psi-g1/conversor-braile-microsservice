@@ -46,7 +46,7 @@ module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback
     try {
         const user = await User.findOne({ email: emailLogin }).lean()
         if(!user) {
-            callback({ status: 'error', error: 'Usuário ou senha inválidos' })
+            callback({ status: 'error', mensagem: 'Usuário ou senha inválidos' })
             return
         }
 
@@ -69,9 +69,9 @@ module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback
             return
         }
 
-        callback({ status: 'error', error: 'Usuário ou senha inválidos' })
+        callback({ status: 'error', mensagem: 'Usuário ou senha inválidos' })
     } catch(error) {
-        callback({ status: 'error', error: error })
+        callback({ status: 'error', mensagem: mensagem })
     }
 }
 
@@ -86,7 +86,7 @@ module.exports.autorizar = function(token, req, res, callback) {
     }
     catch(error) {
         console.log(error)
-        callback({ status: 'error', error: 'Erro de autenticação' })
+        callback({ status: 'error', mensagem: 'Erro de autenticação' })
     }
 }
 
