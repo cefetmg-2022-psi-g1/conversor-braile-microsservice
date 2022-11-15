@@ -22,11 +22,16 @@
 					<textarea name="entradaTraducao" id="area-in" cols="50" rows="30" class="use-keyboard-input" placeholder="Digite o texto a ser traduzido..."></textarea> 
 				</div>
 				<div>
-					<div id="clear">
-						<abbr title="Apagar texto do input"><a><img src="images/eraser.png" alt=""></a></abbr>
+					<div id="containerBotoes">
+						<div id="clear">
+							<abbr title="Apagar texto do input"><a><img src="images/eraser.png" alt=""></a></abbr>
+						</div>
+							<div id="file">
+								<label><img id="imgUpload" src="images/uploadFile.png" alt=""><input id="upload" type="file" name="inputFile" accept="text/*, .txt, .pdf, .xml, .html"></label>
+							</div>
 					</div>
 					<div id="arrow-button">
-						<button><abbr title="Traduzir"><img id="arrow" src="images/arrow-long-right.svg" alt=""></abbr></button>
+						<button id="botaoSubmit"><abbr title="Traduzir"><img id="arrow" src="images/arrow-long-right.svg" alt=""></abbr></button>
 					</div>
 				</div>
 				<div id="out">
@@ -45,6 +50,7 @@
 			<p>2Braile - Conversor didático para Braile - 2022</p>
 		</footer>
 
+		<script src="js/fileUpload.js"></script>
 		<script src="js/copyClipboard.js"></script>
 		<script src="js/showFormatted.js"></script>
 		<script src="js/keyboard.js"></script>
