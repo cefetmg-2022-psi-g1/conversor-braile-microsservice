@@ -1,5 +1,6 @@
 export function validarEntrada(entradaTraducao) {
     var textoTraducao = entradaTraducao
+    if(textoTraducao==undefined)textoTraducao=""
     textoTraducao = textoTraducao.replaceAll("<sub>", "♂")
     textoTraducao = textoTraducao.replaceAll("</sub>", "")
     textoTraducao = textoTraducao.replaceAll("</sup>", "")
