@@ -21,4 +21,10 @@ module.exports = (app) => {
     app.post('/salvarHistorico', (req, res) => {
         app.src.controllers.historicoController.salvar(app, req, res)
     })
+
+    app.post('/editar', (req, res) => {
+        var input = "req.body.inputHistorico"
+
+        app.src.controllers.historicoController.editarHistorico(input, app, req, res)
+    })
 }

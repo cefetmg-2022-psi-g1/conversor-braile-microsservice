@@ -18,3 +18,14 @@ module.exports.salvar = function(app, req, res) {
         })
     }
 }
+
+module.exports.editarHistorico = function(input, app, req, res) {
+    app.src.models.dao.historicoDAO.editarHistorico(input, (err, result) => {
+        if(err)
+            console.log(err)
+        else {
+            console.log(res)
+            res.redirect('http://localhost:3000')
+        }
+    })
+}

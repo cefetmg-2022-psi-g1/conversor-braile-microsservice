@@ -13,4 +13,9 @@ module.exports = (app) => {
 
         app.src.controllers.traducaoController.salvar(token, entradaTraducao, traducao, nomeTraducao, app, req, res)
     })
+
+    app.post('/editarHistorico', function(req, res) {
+        console.log("INPUT: " + req.body.input)
+        app.src.controllers.traducaoController.traducao(app, req.body.input, req, res)
+    })
 }
