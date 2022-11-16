@@ -1,3 +1,5 @@
+import {traduz} from "./realTimeInput.js"
+
 const Keyboard = {
     elements: {
         main: null,
@@ -167,6 +169,8 @@ const Keyboard = {
 
                     break;
             }
+
+            keyElement.addEventListener("click", traduz)
 
             fragment.appendChild(keyElement);
 

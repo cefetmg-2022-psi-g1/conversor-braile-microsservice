@@ -142,13 +142,12 @@ var translate = {
         'ρ': '⠈⠗',//NAO USADO
         'μ': '⠈⠍',
         'σ': '⠈⠎',
-        ' ': '⠀',
         'Δ': '⠘⠙',
         ' ': '⠀',
         '\n': '\n'
 };
 
-module.exports.gerarTraducao = function(textoTraducao, callback) {
+export function gerarTraducao(textoTraducao, callback) {
         var textoTraduzido = []
     
         for(let i = 0; i < textoTraducao.length; i++) {
@@ -158,7 +157,7 @@ module.exports.gerarTraducao = function(textoTraducao, callback) {
                 else charTraduzido = "□"
                 textoTraduzido.push(charTraduzido)
                 if(i == textoTraducao.length - 1) {
-                        callback(null, textoTraduzido)
+                        return textoTraduzido.toString()
                 }
         }
 };
