@@ -35,9 +35,10 @@
 					<% if(historico) {%>
 						<% for(var i = 0; i < historico.length; i++) {%>
 							<div class="historico">
+								<h2><%= historico[i].nome%></h2>
 								<p><%= historico[i].input %></p>
 								<p><%= historico[i].traducao %></p>
-								<button class="edit">editar</button>
+								<button class="edit"><img src="images/pen.svg" alt=""></button>
 							</div>
 						<% }%>
 					<% }%>
