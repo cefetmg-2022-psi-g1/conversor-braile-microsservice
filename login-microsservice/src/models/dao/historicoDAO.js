@@ -29,16 +29,28 @@ module.exports.salvar = async function(user, req, callback) {
     }
 }
 
-module.exports.exibirHistorico = function(token, callback) {
+module.exports.exibirHistorico = async function(token, callback) {
     try {
         const user = jwt.verify(token, JWT_SECRET)
         const userId = user.id
 
-        var traducoes = Historico.find({ user_id: userId })
-        
-        console.log(traducoes.schema)
+        await Historico.find({ user_id: userId }, 'input traducao', (err, results) => {
+            if(err)
+                callback(err)
+            
+            var traducoes = []
+            var i = results.length - 1
 
-        callback(null, traducoes)
+            results.forEach(function(result) {
+                if(i >= 0) {
+                    traducoes[i] = result
+                    i--
+                }
+            })
+            
+            callback(null, traducoes)
+        })
+
     } catch(error) {
         console.log(error)
         callback(error)

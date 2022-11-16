@@ -24,7 +24,7 @@ module.exports.exibirHistorico = function(app, req, res) {
 
     app.src.models.dao.historicoDAO.exibirHistorico(token, (err, result) => {
         if(err)
-            return "DEU ERRO AQUI HEIN"
+            return { status: 'error' }
         else
             return result
     })
