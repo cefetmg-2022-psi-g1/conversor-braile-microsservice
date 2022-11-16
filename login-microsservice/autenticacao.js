@@ -17,4 +17,8 @@ module.exports = (app) => {
     app.post('/logout', (req, res) => {
         app.src.controllers.autenticacaoController.logout(app, req, res)
     })
+
+    app.post('/salvarHistorico', (req, res) => {
+        app.src.controllers.historicoController.salvar(app, req, res)
+    })
 }

@@ -1,8 +1,8 @@
 #slides {
     z-index: 1;
     background: #FFFFFF;
-    max-width: 360px;
-    padding: 45px;
+    max-width: 1000px;
+    padding: 3vw;
     text-align: center;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 0 5px 5px 0 rgb(0 0 0 / 24%);
     position: absolute;
@@ -67,4 +67,12 @@
 
 input[type=radio] {
     accent-color: #5B7482;
+}
+
+.slide-show img {
+    width: 30vw;
+}
+
+#slides {
+    width: 70vw;
 }
