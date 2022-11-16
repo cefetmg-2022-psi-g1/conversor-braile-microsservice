@@ -2,6 +2,7 @@ const { Console } = require("console")
 
 module.exports.index = function(app, req, res) {
     const token = req.cookies.access_token
+    
     if(!token)
         res.render('autenticacao')
     else {
@@ -14,6 +15,16 @@ module.exports.index = function(app, req, res) {
             else {
                 mensagem = result
                 console.log(JSON.stringify(result))
+
+                var historico
+                try {
+                    historico = app.src.controllers.historicoController.exibirHistorico(app, req, res)
+                    console.log(JSON.stringify(historico))
+                } catch(error) {
+                    console.log(error)
+                    historico = 'HAHAHAHAHA'
+                }
+
                 res.render('pgUsuario', mensagem)
             }
         })
@@ -57,7 +68,17 @@ module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
         } else {
             console.log(JSON.stringify(result))
             mensagem = result
-            res.render('pgUsuario', mensagem)
+
+            var historico
+                try {
+                    historico = app.src.controllers.historicoController.exibirHistorico(app, req, res)
+                    console.log(JSON.stringify(historico))
+                } catch(error) {
+                    console.log(error)
+                    historico = 'HAHAHAHAHA'
+                }
+            
+            res.render('pgUsuario', { mensagem: mensagem, historico: historico })
         }
     })
 }

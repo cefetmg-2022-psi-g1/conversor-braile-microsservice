@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div id="out">
-					<textarea disabled name="" id="area-out" cols="50" rows="30" placeholder="Sua tradução aparecerá aqui...">
+					<textarea disabled name="traducao" id="area-out" cols="50" rows="30" placeholder="Sua tradução aparecerá aqui...">
 						<% if(textoTraduzido.length > 0) for(var i = 0; i < textoTraduzido.length; i++) { %>
 							<%=textoTraduzido[i]%>
 						<% } %></textarea>
@@ -58,8 +58,8 @@
 				<div id="tutorial">
 					<div id="slides">
 						<img src="images/close.svg" alt="" id="close-tutorial">
-						<input type="text" name="input-form" id="input-form">
-						<input type="text" name="output-form" id="output-form">
+						<input type="text" name="inputForm" id="input-form">
+						<input type="text" name="outputForm" id="output-form">
 						<input type="text" name="nomeTraducao" placeholder="Nome da sua tradução"/>
 						<button id="send-post-save">Salvar</button>
 					</div>

@@ -21,3 +21,9 @@ module.exports.traducao = function(application, entradaTraducao, req, res) {
         res.render('index', {textoTraduzido: result})
     })
 }
+
+module.exports.salvar = function(token, input, traducao, nome, app, req, res) {
+    app.src.models.dao.salvarHistoricoDAO.salvar(token, input, traducao, nome, (err, result) => {
+        
+    }) 
+}
