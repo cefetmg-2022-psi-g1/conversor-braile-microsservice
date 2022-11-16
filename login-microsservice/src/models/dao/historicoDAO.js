@@ -1,4 +1,5 @@
 const Historico = require('../dto/historico')
+const axios = require("axios")
 
 module.exports.salvar = async function(user, req, callback) {
     try {
@@ -29,7 +30,7 @@ module.exports.salvar = async function(user, req, callback) {
 
 module.exports.exibirHistorico = function(userId, callback) {
     try {
-        Historico.find({ user_id: userId }, 'input traducao', (err, results) => {
+        Historico.find({ user_id: userId }, 'input traducao nome', (err, results) => {
             if(err)
                 callback(err)
             
@@ -48,5 +49,18 @@ module.exports.exibirHistorico = function(userId, callback) {
 
     } catch(error) {
         callback(error)
+    }
+}
+
+module.exports.editarHistorico = function(input, callback) {
+    axios.post( 'http://localhost:3000/editarHistorico', {
+        input: input
+    })
+    .then((res) => {
+        console.log(res)
+        callback(null, res)
+    }), (err) => {
+        console.log(err)
+        callback(err)
     }
 }
