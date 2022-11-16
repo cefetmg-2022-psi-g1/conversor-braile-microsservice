@@ -64,7 +64,7 @@ module.exports.logar = async function(senhaLogin, emailLogin, req, res, callback
             const _id = user._id
             const userNome = user.nome
             const userEmail = user.email
-            callback(null, { status: 'ok', id: _id, nome: userNome, email: userEmail })
+            callback(null, { status: 'ok', id: _id, nome: userNome, email: userEmail, token: token })
 
             return
         }
