@@ -5,6 +5,7 @@ const path = require("path");
 module.exports.mainMail = async function mainMail(name, email, subject, message) {
   const transporter = await nodeMail.createTransport({
     service: 'gmail',
+    port: 456,
     auth: {
       user: process.env.GMAIL_USER,
       pass: process.env.PASSWORD,
