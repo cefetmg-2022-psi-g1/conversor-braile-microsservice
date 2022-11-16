@@ -1,6 +1,4 @@
 const Historico = require('../dto/historico')
-const jwt = require('jsonwebtoken')
-const JWT_SECRET = process.env.JWT_SECRET
 
 module.exports.salvar = async function(user, req, callback) {
     try {
@@ -29,12 +27,9 @@ module.exports.salvar = async function(user, req, callback) {
     }
 }
 
-module.exports.exibirHistorico = async function(token, callback) {
+module.exports.exibirHistorico = function(userId, callback) {
     try {
-        const user = jwt.verify(token, JWT_SECRET)
-        const userId = user.id
-
-        await Historico.find({ user_id: userId }, 'input traducao', (err, results) => {
+        Historico.find({ user_id: userId }, 'input traducao', (err, results) => {
             if(err)
                 callback(err)
             
@@ -47,12 +42,11 @@ module.exports.exibirHistorico = async function(token, callback) {
                     i--
                 }
             })
-            
+
             callback(null, traducoes)
         })
 
     } catch(error) {
-        console.log(error)
         callback(error)
     }
 }

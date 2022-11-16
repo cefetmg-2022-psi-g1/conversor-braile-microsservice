@@ -18,14 +18,3 @@ module.exports.salvar = function(app, req, res) {
         })
     }
 }
-
-module.exports.exibirHistorico = function(app, req, res) {
-    const token = req.cookies.access_token
-
-    app.src.models.dao.historicoDAO.exibirHistorico(token, (err, result) => {
-        if(err)
-            return { status: 'error' }
-        else
-            return result
-    })
-}

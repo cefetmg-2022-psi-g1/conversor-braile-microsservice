@@ -16,7 +16,13 @@ module.exports.index = function(app, req, res) {
                 mensagem = result
                 console.log(JSON.stringify(result))
 
-                var historico = app.src.controllers.historicoController.exibirHistorico(app, req, res)
+                var historico
+                
+                app.src.controllers.historicoController.exibirHistorico(app, req, res, (err, result) => {
+                    historico = result
+                })
+
+                console.log(historico[0])
 
                 res.render('pgUsuario', { mensagem: mensagem, historico: historico })
             }
@@ -68,7 +74,6 @@ module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
                     console.log(JSON.stringify(historico))
                 } catch(error) {
                     console.log(error)
-                    historico = 'HAHAHAHAHA'
                 }
             
             res.render('pgUsuario', { mensagem: mensagem, historico: historico })
