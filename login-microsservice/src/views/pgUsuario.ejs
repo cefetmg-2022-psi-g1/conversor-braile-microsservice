@@ -30,15 +30,18 @@
                   </div>
 			</div>
             <div class="historicos">
-                <h1>Históricos de Traduções:</h1>
-				<% if(historico) {%>
-                	<% for(var i = 0; i < historico.length; i++) {%>
-						<div class="historico">
-							<p><%= historico[i].input %></p>
-							<p><%= historico[i].traducao %></p>
-						</div>
+				<form action="/editar" method="post">
+					<h1>Históricos de Traduções:</h1>
+					<% if(historico) {%>
+						<% for(var i = 0; i < historico.length; i++) {%>
+							<div class="historico">
+								<p><%= historico[i].input %></p>
+								<p><%= historico[i].traducao %></p>
+								<button class="edit">editar</button>
+							</div>
+						<% }%>
 					<% }%>
-				<% }%>
+				</form>
             </div>
 		</main>
 
