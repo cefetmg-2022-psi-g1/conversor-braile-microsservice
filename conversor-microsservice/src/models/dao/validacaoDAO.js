@@ -4,5 +4,6 @@ module.exports.validarEntrada = function(entradaTraducao, callback) {
     textoTraducao = textoTraducao.replaceAll("</sub>", "")
     textoTraducao = textoTraducao.replaceAll("</sup>", "")
     textoTraducao = textoTraducao.replaceAll("<sup>", "♀")
+    textoTraducao = textoTraducao.replaceAll("\r", "")
     callback(null, textoTraducao)
 }
