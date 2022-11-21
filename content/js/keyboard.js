@@ -210,8 +210,8 @@ const Keyboard = {
 
         for (const key of this.elements.keys) {
             if (key.childElementCount === 0) {
-                key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
                 if(this.properties.capsLock){
+                    key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
                     if(key.textContent === '1') key.textContent = 'Δ'
                     if(key.textContent === '2') key.textContent = 'δ'
                     if(key.textContent === '3') key.textContent = 'α'
@@ -223,7 +223,7 @@ const Keyboard = {
                     if(key.textContent === '9') key.textContent = '←'
                     if(key.textContent === '0') key.textContent = 'μ'
                 } else {
-                    if(key.textContent === 'Δ') key.textContent = '1';
+                    if(key.textContent === 'Δ') key.textContent = '1'
                     if(key.textContent === 'δ') key.textContent = '2'
                     if(key.textContent === 'α') key.textContent = '3'
                     if(key.textContent === 'β') key.textContent = '4'
@@ -233,6 +233,7 @@ const Keyboard = {
                     if(key.textContent === '→') key.textContent = '8'
                     if(key.textContent === '←') key.textContent = '9'
                     if(key.textContent === 'μ') key.textContent = '0'
+                    key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
                 }
             }
         }
