@@ -19,13 +19,13 @@ module.exports.salvar = function(app, req, res) {
     }
 }
 
-module.exports.exibirHistorico = function(app, req, res) {
-    const token = req.cookies.access_token
-
-    app.src.models.dao.historicoDAO.exibirHistorico(token, (err, result) => {
+module.exports.editarHistorico = function(input, app, req, res) {
+    app.src.models.dao.historicoDAO.editarHistorico(input, (err, result) => {
         if(err)
-            return { status: 'error' }
-        else
-            return result
+            console.log(err)
+        else {
+            console.log(res)
+            res.redirect('http://localhost:3000')
+        }
     })
 }

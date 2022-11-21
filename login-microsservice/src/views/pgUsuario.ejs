@@ -30,11 +30,19 @@
                   </div>
 			</div>
             <div class="historicos">
-                <h1>Históricos de Traduções:</h1>
-                <div class="historico">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
-                    <p>⠨⠇⠕⠗⠑⠍⠀⠨⠊⠏⠎⠥⠍⠀⠊⠎⠀⠎⠊⠍⠏⠇⠽⠀⠙⠥⠍⠍⠽⠀⠞⠑⠭⠞⠀⠕⠋⠀⠞⠓⠑⠀⠏⠗⠊⠝⠞⠊⠝⠛⠀⠁⠝⠙⠀⠞⠽⠏⠑⠎⠑⠞⠞⠊⠝⠛⠀⠊⠝⠙⠥⠎⠞⠗⠽⠄⠀⠨⠇⠕⠗⠑⠍⠀⠨⠊⠏⠎⠥⠍⠀⠓⠁⠎⠀⠃⠑⠑⠝⠀⠞⠓⠑⠀⠊⠝⠙⠥⠎⠞⠗⠽⠠⠦⠎⠀⠎⠞⠁⠝⠙⠁⠗⠙⠀⠙⠥⠍⠍⠽⠀⠞⠑⠭⠞⠀⠑⠧⠑⠗⠀⠎⠊⠝⠉⠑⠀⠞⠓⠑⠀⠁⠑⠚⠚⠎⠂⠀⠺⠓⠑⠝⠀⠁⠝⠀⠥⠝⠅⠝⠕⠺⠝⠀⠏⠗⠊⠝⠞⠑⠗⠀⠞⠕⠕⠅⠀⠁⠀⠛⠁⠇⠇⠑⠽⠀⠕⠋⠀⠞⠽⠏⠑⠀⠁⠝⠙⠀⠎⠉⠗⠁⠍⠃⠇⠑⠙⠀⠊⠞⠀⠞⠕⠀⠍⠁⠅⠑⠀⠁⠀⠞⠍⠀⠨⠊⠏⠎⠥⠍⠄</p>
-                </div>
+				<form action="/editar" method="post">
+					<h1>Históricos de Traduções:</h1>
+					<% if(historico) {%>
+						<% for(var i = 0; i < historico.length; i++) {%>
+							<div class="historico">
+								<h2><%= historico[i].nome%></h2>
+								<p><%= historico[i].input %></p>
+								<p><%= historico[i].traducao %></p>
+								<button class="edit"><img src="images/pen.svg" alt=""></button>
+							</div>
+						<% }%>
+					<% }%>
+				</form>
             </div>
 		</main>
 

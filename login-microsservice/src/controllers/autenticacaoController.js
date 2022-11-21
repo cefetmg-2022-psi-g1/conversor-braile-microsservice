@@ -1,4 +1,7 @@
 const { Console } = require("console")
+require('dotenv').config();
+const jwt = require('jsonwebtoken')
+const JWT_SECRET = process.env.JWT_SECRET
 
 module.exports.index = function(app, req, res) {
     const token = req.cookies.access_token
@@ -15,10 +18,20 @@ module.exports.index = function(app, req, res) {
             else {
                 mensagem = result
                 console.log(JSON.stringify(result))
+                
+                try {
+                    const user = jwt.verify(token, JWT_SECRET)
+                    const userId = user.id
 
-                var historico = app.src.controllers.historicoController.exibirHistorico(app, req, res)
+                    app.src.models.dao.historicoDAO.exibirHistorico(userId, (err, result) => {
+                        console.log("RESULT DIS: " + result)
 
-                res.render('pgUsuario', { mensagem: mensagem, historico: historico })
+                        res.render('pgUsuario', { mensagem: mensagem, historico: result })
+                    })
+                } catch (error) {
+                    console.log(error)
+                    res.render('pgUsuario', { mensagem: mensagem, historico: null })
+                }
             }
         })
     }
@@ -62,16 +75,20 @@ module.exports.logar = function(senhaLogin, emailLogin, app, req, res)  {
             console.log(JSON.stringify(result))
             mensagem = result
 
-            var historico
-                try {
-                    historico = app.src.controllers.historicoController.exibirHistorico(app, req, res)
-                    console.log(JSON.stringify(historico))
-                } catch(error) {
-                    console.log(error)
-                    historico = 'HAHAHAHAHA'
-                }
-            
-            res.render('pgUsuario', { mensagem: mensagem, historico: historico })
+            try {
+                const token = result.token
+                console.log("TOKEN: " + token)
+
+                const user = jwt.verify(token, JWT_SECRET)
+                const userId = user.id
+
+                app.src.models.dao.historicoDAO.exibirHistorico(userId, (err, result) => {
+                    res.render('pgUsuario', { mensagem: mensagem, historico: result })
+                })
+            } catch (error) {
+                console.log(error)
+                res.render('pgUsuario', { mensagem: mensagem, historico: null })
+            }
         }
     })
 }

@@ -13,3 +13,4 @@ export function traduz(){
 
 campoInput.addEventListener("input", traduz)
 
+traduz()
