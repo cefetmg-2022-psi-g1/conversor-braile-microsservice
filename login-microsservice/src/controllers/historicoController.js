@@ -6,13 +6,17 @@ module.exports.salvar = function(app, req, res) {
     else {
         app.src.models.dao.autenticacaoDAO.autorizar(token, req, res, (err, user) => {
             if(err)
-                res.send({ status: 'error', mensagem: 'Usuário não logado!' })
+                res.end(JSON.stringify({ status: 'error', mensagem: 'Usuário não logado!' }))
             else {
                 app.src.models.dao.historicoDAO.salvar(user, req, (err, result) => {
-                    if(err)
-                        res.send(err)
-                    else
-                        res.send(result)
+                    if(err) {
+                        console.log("RESULTADO DA REQUISIÇÃO: " + err.mensagem)
+                        res.end(JSON.stringify(err))
+                    }
+                    else {
+                        console.log("RESULTADO DA REQUISIÇÃO: " + result.mensagem)
+                        res.end(JSON.stringify(result))
+                    }
                 })
             }
         })

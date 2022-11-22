@@ -8,7 +8,7 @@ module.exports.salvar = function(token, input, traducao, nome, callback) {
         nome: nome
     })
     .then((res) => {
-        console.log(res)
+        console.log("AAAAAAQUII: " + res.data.mensagem)
         callback(null, res)
     }), (err) => {
         console.log(err)
