@@ -1,6 +1,6 @@
 module.exports.index = function(application, req, res) {
     let resultado = []
-    res.render('index', {textoTraduzido: resultado})
+    res.render('index', {textoTraduzido: resultado, resultado: null})
 }
 
 module.exports.traducao = function(application, entradaTraducao, req, res) {
@@ -18,7 +18,7 @@ module.exports.traducao = function(application, entradaTraducao, req, res) {
         if(err)
            console.log(err)
         
-        res.render('index', {textoTraduzido: result})
+        res.render('index', { textoTraduzido: result, resultado: null })
     })
 }
 
