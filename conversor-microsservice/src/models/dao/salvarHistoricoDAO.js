@@ -9,7 +9,7 @@ module.exports.salvar = function(token, input, traducao, nome, callback) {
     })
     .then((res) => {
         console.log("AAAAAAQUII: " + res.data.mensagem)
-        callback(null, res)
+        callback(null, res.data)
     }), (err) => {
         console.log(err)
         callback(err)

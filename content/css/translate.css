@@ -105,7 +105,7 @@ input{
         display: grid;
         margin-left: 17vw;
         padding-top: 2vh;
-        grid-template-rows: 32vh 10vh 31vh 3vh;
+        grid-template-rows: 32vh 12vh 31vh 3vh;
         width: 66vw;    
     }
 
@@ -173,4 +173,16 @@ label{
 
 input[type="file"] {
     display: none;
+}
+
+#retorno-save {
+    display: none;
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+    background-color: rgba(0, 128, 0, 0.7);
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
